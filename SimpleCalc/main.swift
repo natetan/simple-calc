@@ -49,6 +49,8 @@ func fact() {
 }
 
 var result = 0;
+var message = "";
+var isValid = true;
 
 if (op == "+") {
     result = add(a: num1!, b: num2!);
@@ -60,9 +62,16 @@ if (op == "+") {
     result = div(a: num1!, b: num2!);
 } else if (op == "%") {
     result = mod(a: num1!, b: num2!);
+} else {
+	isValid = false;
+	print("Invalid operator: \(op)");
 }
 
-print("Result: \(result)");
+message = "Result: \(result)";
+
+if (isValid) {
+	print(message);
+}
 
 
 
