@@ -8,7 +8,7 @@
 
 import Foundation
 
-print("Enter a an availble method; calc, count. avg, fact")
+print("Enter a an availble method; calc, count, avg, fact")
 let operation = readLine(strippingNewline: true)!
 let method = String.init(operation)
 
@@ -68,6 +68,17 @@ if (method == "calc") {
     func count(numbers: [Int]) -> Int {
         return numbers.count;
     }
+    print("Type in numbers separated by spaces")
+    let response = readLine(strippingNewline: true)!
+    let nums = String.init(response)
+    var arr = nums!.components(separatedBy: " ")
+    var arr2 : [Int] = []
+    for i in 0...arr.count - 1 {
+        var num = Int(i)
+        var temp = Int(arr[num])
+        arr2.append(temp!)
+    }
+    print("Count: \(count(numbers: arr2))")
 } else if (method == "avg") {
 
     func avg(numbers: [Int]) -> Int {
@@ -84,14 +95,14 @@ if (method == "calc") {
     print("Type in numbers separated by spaces")
     let response = readLine(strippingNewline: true)!
     let nums = String.init(response)
-    var arr = nums!.components(separatedBy: " ") // string array: 1 2 3 4
+    var arr = nums!.components(separatedBy: " ")
     var arr2 : [Int] = []
-    print(arr)
     for i in 0...arr.count - 1 {
         var num = Int(i)
         var temp = Int(arr[num])
         arr2.append(temp!)
     }
+    print("Average: \(avg(numbers: arr2))")
     
 } else if (method == "fact") {
     func fact(num: Int) -> Int {
@@ -109,6 +120,8 @@ if (method == "calc") {
     let num = Int.init(response);
     print("Result: \(fact(num: num!))")
     
+} else {
+    print("The \(method) method doesn't exist")
 }
 
 
